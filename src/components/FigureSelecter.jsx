@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import esferaImg from '../assets/esfera.png';
 import trianguloImg from '../assets/triangulo.png';
 
