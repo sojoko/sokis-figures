@@ -68,7 +68,7 @@ const Modal2 = ({ show, onClose, figure,
               <label className="block text-gray-700">b:</label>
               <input type="number" className="w-full p-2 border rounded" 
                 onChange={(e) => {               
-                  seta(e.target.value);
+                  setb(e.target.value);
                   }}
                
               />
