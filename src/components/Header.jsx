@@ -17,10 +17,10 @@ function Header() {
   return (
     <div className='flex w-full justify-between items-center flex-col lg:flex-row'>
       <a href="../">
-        <p className='mt-6 lg:ml-16 text-center text-pink-500 text-3xl font-extrabold'>SOKIS FIGURES</p>
+        <p className='mt-4 lg:ml-16 text-center text-pink-500 text-3xl font-extrabold'>SOKIS FIGURES</p>
       </a>
       <button onClick={openModal}>
-        <p className='mt-6 lg:mr-16 text-center text-pink-500 text-2xl font-extrabold'>INSTRUCCIONES</p>
+        <p className='mt-4 lg:mr-16 text-center text-pink-500 text-2xl font-extrabold'>INSTRUCCIONES</p>
       </button>
       <ModalInstruc isOpen={isModalOpen} onClose={closeModal} />
     </div>

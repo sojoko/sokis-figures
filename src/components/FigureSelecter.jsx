@@ -10,7 +10,7 @@ function FirgureSelecter() {
   ];
   return (
     <div className='min-h-[85vh] flex justify-center items-center'>
-    <div className="grid grid-cols-1 sm:grid-cols-2 gap-8 lg:gap-24 p-4 lg:mx-40 lg:mt-24 mt-4">
+    <div className="grid grid-cols-1 sm:grid-cols-2 gap-8 lg:gap-24 p-4 lg:mx-40 lg:mt-24 mt-1">
       {figures.map((figure, index) => (
         <a href={figure.src}>
         <div key={index} className="flex items-center justify-center lg:mt-16">
