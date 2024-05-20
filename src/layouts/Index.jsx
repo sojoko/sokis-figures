@@ -1,7 +1,8 @@
 import React, { useState } from 'react';
 import { Footer } from '../components/Footer';
-import { FirgureContainer } from '../components/FigureContainer';
 import { FirgureSelecter } from '../components/FigureSelecter';
+import { Header } from '../components/Header';
+
 
 
 function Index() {
@@ -9,6 +10,7 @@ function Index() {
   return (
   <React.Fragment>
     <div className='min-h-screen min-w-screen flex items-center flex-col justify-between'>
+      <Header className="" />
       <FirgureSelecter />
       <Footer className="" />
 

@@ -92,12 +92,12 @@ function FirgureContainerFlats() {
   }
 
   return (
-    <div className="grid grid-cols-1 sm:grid-cols-4 gap-2  lg:gap-10 p-4 lg:mx-40 mt-2">
+    <div className="grid grid-cols-1 sm:grid-cols-4 gap-2  lg:gap-10 p-2 lg:mx-34 mt-2">
       {figures.map((figure, index) => (
         <div key={index} className="flex items-center justify-center mb-2 lg:mb-0">
           <div className="mx-auto px-15">
             <div
-              className="max-w-xs cursor-pointer rounded-lg bg-white p-6 shadow duration-150 hover:scale-105 hover:shadow-md"
+              className="max-w-xs cursor-pointer rounded-lg bg-white p-4 shadow duration-150 hover:scale-105 hover:shadow-md"
               onClick={() => handleOpenModal(figure)}
             >
               <img

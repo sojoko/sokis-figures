@@ -73,12 +73,12 @@ function FirgureContainer() {
   }
 
   return (
-    <div className="grid grid-cols-1 sm:grid-cols-3 gap-2  lg:gap-12 p-4 lg:mx-40 mt-2">
+    <div className="grid grid-cols-1 sm:grid-cols-3 gap-2 lg:gap-8 p-2 lg:mx-34 mt-1">
       {figures.map((figure, index) => (
-        <div key={index} className="flex items-center justify-center mb-2 lg:mb-0">
+        <div key={index} className="flex items-center justify-center mb-2 lg:mb-0 lg:mr-8">
           <div className="mx-auto px-15">
             <div
-              className="max-w-xs cursor-pointer rounded-lg bg-white p-6 shadow duration-150 hover:scale-105 hover:shadow-md"
+              className="max-w-xs cursor-pointer rounded-lg bg-white p-8 shadow duration-150 hover:scale-105 hover:shadow-md"
               onClick={() => handleOpenModal(figure)}
             >
               <img
@@ -86,8 +86,8 @@ function FirgureContainer() {
                 src={figure.img}
                 alt={figure.name}
               />
-              <p className="my-2 pl-4 font-bold text-gray-500 text-xl">{figure.name}</p>
-              <p className="mb-2 ml-4 text-xl font-semibold text-gray-800">{figure.formula}</p>
+              <p className="my-1 pl-4 font-bold text-gray-500 text-xl">{figure.name}</p>
+              <p className="mb-1 ml-4 text-xl font-semibold text-gray-800">{figure.formula}</p>
             </div>
           </div>
         </div>
