@@ -51,9 +51,9 @@ function FirgureContainer() {
   }
 
   return (
-    <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 p-4 lg:mx-40 mt-8">
+    <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 p-4 lg:mx-40 mt-4">
       {figures.map((figure, index) => (
-        <div key={index} className="flex items-center justify-center mb-8">
+        <div key={index} className="flex items-center justify-center mb-4">
           <div className="mx-auto px-15">
             <div
               className="max-w-xs cursor-pointer rounded-lg bg-white p-6 shadow duration-150 hover:scale-105 hover:shadow-md"
@@ -82,7 +82,11 @@ function FirgureContainer() {
           Calcular figura irregular
         </button>
       </div>
+      <div>
+      <p className=' text-center text-pink-500 text-lg font-bold'>Hecho por Jonhathan Sojo</p>
     </div>
+    </div>
+  
   );
 }
 

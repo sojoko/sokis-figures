@@ -7,7 +7,7 @@ function App() {
     <React.Fragment>
       
       <FirgureContainer />
-      
+    
     </React.Fragment>
   );
 }
