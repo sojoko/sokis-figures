@@ -29,16 +29,19 @@ const Modal = ({ show, onClose, figure,
     else if(figure.name === 'Cubo'){
       const volumen = (Math.pow(a,3)).toFixed(2);
       setVolumenCubo(volumen);
+      alert('el volumen del cubo es '+ volumen);
       return volumen;
     }
     else if(figure.name === 'Paralelepipedo'){
       const volumen = (a*b*c).toFixed(2);
       setVolumenParalelepipedo(volumen);
+      alert('el volumen del paralelepipedo es: '+ volumen);
       return volumen;
     }
     else if(figure.name === 'Cilindro'){
       const volumen = (Math.PI*Math.pow(radio,2)*h).toFixed(2);
       setVolumenCilindro(volumen);
+      alert('el volumen del cilindro es: '+ volumen);
       return volumen;
     }
     else if(figure.name === 'Cono'){
