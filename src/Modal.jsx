@@ -7,7 +7,8 @@ const Modal = ({ show, onClose, figure,
   setVolumenCubo,
   setVolumenParalelepipedo,
   setVolumenCilindro,
-  setVolumenCono
+  setVolumenCono,
+  addVolumen 
  }) => {
   const [radio, setRadio] = useState(0);
   const [a, seta] = useState(0);
@@ -16,42 +17,28 @@ const Modal = ({ show, onClose, figure,
   const [h, seth] = useState(0);
 
 
+
   if (!show) {
     return null;
   }
-  function calcVolumen(){
-    if(figure.name === 'Esfera'){    
-      const volumen = (4/3*Math.PI*Math.pow(radio,3)).toFixed(2);
-      setVolumenEsfera(volumen);
-      alert('el volumen de la esfera es: '+ volumen);
-      return volumen
+  const calcVolumen = () => {
+    let volumen = 0;
+    if (figure.name === 'Esfera') {
+      volumen = (4 / 3 * Math.PI * Math.pow(radio, 3)).toFixed(2);
+    } else if (figure.name === 'Cubo') {
+      volumen = (Math.pow(a, 3)).toFixed(2);
+    } else if (figure.name === 'Paralelepipedo') {
+      volumen = (a * b * c).toFixed(2);
+    } else if (figure.name === 'Cilindro') {
+      volumen = (Math.PI * Math.pow(radio, 2) * h).toFixed(2);
+    } else if (figure.name === 'Cono') {
+      volumen = (Math.PI * Math.pow(radio, 2) * h / 3).toFixed(2);
     }
-    else if(figure.name === 'Cubo'){
-      const volumen = (Math.pow(a,3)).toFixed(2);
-      setVolumenCubo(volumen);
-      alert('el volumen del cubo es '+ volumen);
-      return volumen;
-    }
-    else if(figure.name === 'Paralelepipedo'){
-      const volumen = (a*b*c).toFixed(2);
-      setVolumenParalelepipedo(volumen);
-      alert('el volumen del paralelepipedo es: '+ volumen);
-      return volumen;
-    }
-    else if(figure.name === 'Cilindro'){
-      const volumen = (Math.PI*Math.pow(radio,2)*h).toFixed(2);
-      setVolumenCilindro(volumen);
-      alert('el volumen del cilindro es: '+ volumen);
-      return volumen;
-    }
-    else if(figure.name === 'Cono'){
-      const volumen = (Math.PI*Math.pow(radio,2)*h/3).toFixed(2);
-      setVolumenCono(volumen);
-      alert('el volumen del cono es: '+ volumen);
-      return volumen;
-    }
-  
-  }
+
+    addVolumen(figure.name, parseFloat(volumen));
+    alert(`El volumen de la ${figure.name.toLowerCase()} es: ${volumen}`);
+  };
+
 
 
   function handleClick(){
