@@ -9,7 +9,7 @@ function ModalInstruc({ isOpen, onClose }) {
       <div className="bg-white p-6 rounded-lg shadow-lg z-10 max-w-md w-full">
         <h2 className="text-2xl font-bold mb-4 text-pink-500">Instrucciones</h2>
         <ol className="list-decimal pl-5 space-y-2">
-          <li className=''> <span className='text-cyan-600 font-bold'>Selecciona un tipo de figura (planda o solida)</span>
+          <li className=''> <span className='text-cyan-600 font-bold'>Selecciona un tipo de figura (planas o solidas)</span>
             <ul className="list-disc pl-5">
               <li>Cada figura te permitirá calcular su área o volumen según sea el caso.</li>
             </ul>
