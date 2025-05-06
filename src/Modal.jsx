@@ -1,6 +1,7 @@
 import React from 'react';
 import { useState } from 'react';
-
+import ResultModal from './ResultModal';
+import { useTheme } from './ThemeContext';
 
 const Modal = ({ show, onClose, figure,
   setVolumenEsfera,
@@ -15,12 +16,14 @@ const Modal = ({ show, onClose, figure,
   const [b, setb] = useState(0);
   const [c, setc] = useState(0);
   const [h, seth] = useState(0);
-
-
+  const [showResultModal, setShowResultModal] = useState(false);
+  const [resultVolumen, setResultVolumen] = useState(0);
+  const { darkMode } = useTheme();
 
   if (!show) {
     return null;
   }
+  
   const calcVolumen = () => {
     let volumen = 0;
     if (figure.name === 'Esfera') {
@@ -36,120 +39,153 @@ const Modal = ({ show, onClose, figure,
     }
 
     addVolumen(figure.name, parseFloat(volumen));
-    alert(`El volumen de la ${figure.name.toLowerCase()} es: ${volumen}`);
+    setResultVolumen(volumen);
+    setShowResultModal(true);
   };
-
-
 
   function handleClick(){
     calcVolumen();
-    onClose();
   }
   
+  const handleCloseResultModal = () => {
+    setShowResultModal(false);
+    onClose();
+  };
+  
   return (
-    <div className="fixed inset-0 bg-gray-600 bg-opacity-50 flex justify-center items-center">
-      <div className="bg-white p-4 rounded shadow-lg max-w-md w-full">
-        <h2 className="text-2xl mb-4">{figure.name}</h2>
+    <div data-testid="solid-modal-container" className="fixed inset-0 bg-gray-600 bg-opacity-50 flex justify-center items-center">
+      <div data-testid="solid-modal-content" className="bg-white dark:bg-gray-800 p-4 rounded shadow-lg max-w-md w-full transition-colors duration-200">
+        <h2 data-testid="solid-modal-title" className="text-2xl mb-4 text-gray-800 dark:text-gray-200">{figure.name}</h2>
         <form>
           {figure.name === 'Esfera' && (
-            <div className="mb-4">
-              <label className="block text-gray-700">Radio:</label>
-              <input type="number" className="w-full p-2 border rounded"              
-              onChange={(e) => {               
-                setRadio(e.target.value);
+            <div data-testid="solid-modal-esfera-input" className="mb-4">
+              <label className="block text-gray-700 dark:text-gray-300">Radio:</label>
+              <input 
+                data-testid="solid-modal-radio-input"
+                type="number" 
+                className="w-full p-2 border rounded dark:bg-gray-700 dark:border-gray-600 dark:text-white"              
+                onChange={(e) => {               
+                  setRadio(e.target.value);
                 }}
               />
             </div>
-
-          )
-          }
-           {figure.name === 'Cubo' && (
-            <div className="mb-4">
-              <label className="block text-gray-700">a</label>
-              <input type="number" className="w-full p-2 border rounded" 
+          )}
+          {figure.name === 'Cubo' && (
+            <div data-testid="solid-modal-cubo-input" className="mb-4">
+              <label className="block text-gray-700 dark:text-gray-300">a</label>
+              <input 
+                data-testid="solid-modal-a-input"
+                type="number" 
+                className="w-full p-2 border rounded dark:bg-gray-700 dark:border-gray-600 dark:text-white" 
                 onChange={(e) => {               
                   seta(e.target.value);
-                  }}
-               
+                }}
               />
             </div>
-
-          )
-          }
+          )}
           {figure.name === 'Paralelepipedo' && (
-            <div className="mb-4">
-              <label className="block text-gray-700">a</label>
-              <input type="number" className="w-full p-2 border rounded" 
-              onChange={(e) => {
-                seta(e.target.value);
+            <div data-testid="solid-modal-paralelepipedo-input" className="mb-4">
+              <label className="block text-gray-700 dark:text-gray-300">a</label>
+              <input 
+                data-testid="solid-modal-a-input"
+                type="number" 
+                className="w-full p-2 border rounded dark:bg-gray-700 dark:border-gray-600 dark:text-white" 
+                onChange={(e) => {
+                  seta(e.target.value);
                 }}
               />
-              <label className="block text-gray-700">b</label>
-              <input type="number" className="w-full p-2 border rounded" 
-              onChange={(e) => {
-                setb(e.target.value);
+              <label className="block text-gray-700 dark:text-gray-300">b</label>
+              <input 
+                data-testid="solid-modal-b-input"
+                type="number" 
+                className="w-full p-2 border rounded dark:bg-gray-700 dark:border-gray-600 dark:text-white" 
+                onChange={(e) => {
+                  setb(e.target.value);
                 }}
               />
-              <label className="block text-gray-700">c</label>
-              <input type="number" className="w-full p-2 border rounded"
-              onChange={(e) => {
-                setc(e.target.value);
-                }
-              }
+              <label className="block text-gray-700 dark:text-gray-300">c</label>
+              <input 
+                data-testid="solid-modal-c-input"
+                type="number" 
+                className="w-full p-2 border rounded dark:bg-gray-700 dark:border-gray-600 dark:text-white"
+                onChange={(e) => {
+                  setc(e.target.value);
+                }}
               />
             </div>
-          )
-          }
+          )}
           {figure.name === 'Cilindro' && (
-            <div className="mb-4">
-              <label className="block text-gray-700">Radio:</label>
-              <input type="number" className="w-full p-2 border rounded" 
-              onChange={(e) => {
-                setRadio(e.target.value);
-                }
-              }
-          
+            <div data-testid="solid-modal-cilindro-input" className="mb-4">
+              <label className="block text-gray-700 dark:text-gray-300">Radio:</label>
+              <input 
+                data-testid="solid-modal-radio-input"
+                type="number" 
+                className="w-full p-2 border rounded dark:bg-gray-700 dark:border-gray-600 dark:text-white" 
+                onChange={(e) => {
+                  setRadio(e.target.value);
+                }}
               />
-              <label className="block text-gray-700">h:</label>
-              <input type="number" className="w-full p-2 border rounded" 
-              onChange={(e) => {
-                seth(e.target.value);
-                }
-              }
+              <label className="block text-gray-700 dark:text-gray-300">h:</label>
+              <input 
+                data-testid="solid-modal-h-input"
+                type="number" 
+                className="w-full p-2 border rounded dark:bg-gray-700 dark:border-gray-600 dark:text-white" 
+                onChange={(e) => {
+                  seth(e.target.value);
+                }}
               />
             </div>
-          )
-          }
+          )}
           {figure.name === 'Cono' && (
-            <div className="mb-4">
-              <label className="block text-gray-700">Radio:</label>
-              <input type="number" className="w-full p-2 border rounded" 
-              onChange={(e) => {
-                setRadio(e.target.value);
-                }
-              }
+            <div data-testid="solid-modal-cono-input" className="mb-4">
+              <label className="block text-gray-700 dark:text-gray-300">Radio:</label>
+              <input 
+                data-testid="solid-modal-radio-input"
+                type="number" 
+                className="w-full p-2 border rounded dark:bg-gray-700 dark:border-gray-600 dark:text-white" 
+                onChange={(e) => {
+                  setRadio(e.target.value);
+                }}
               />
-              <label className="block text-gray-700">h:</label>
-              <input type="number" className="w-full p-2 border rounded"
-              onChange={(e) => {
-                seth(e.target.value);
-                }
-              }
+              <label className="block text-gray-700 dark:text-gray-300">h:</label>
+              <input 
+                data-testid="solid-modal-h-input"
+                type="number" 
+                className="w-full p-2 border rounded dark:bg-gray-700 dark:border-gray-600 dark:text-white"
+                onChange={(e) => {
+                  seth(e.target.value);
+                }}
               />
-        
             </div>
-          )
-          }
+          )}
           <div className='flex justify-between'>
-            <button type="button" onClick={onClose} className="px-4 py-2 bg-pink-400 text-white rounded">
+            <button 
+              data-testid="solid-modal-close-button"
+              type="button" 
+              onClick={onClose} 
+              className="px-4 py-2 bg-pink-400 dark:bg-pink-600 text-white rounded hover:bg-pink-500 dark:hover:bg-pink-700 transition-colors duration-200"
+            >
               Cerrar
             </button>
-            <button type="button" onClick={handleClick} className="px-4 py-2 bg-pink-400 text-white rounded">
-            Guardar
+            <button 
+              data-testid="solid-modal-calculate-button"
+              type="button" 
+              onClick={handleClick} 
+              className="px-4 py-2 bg-pink-400 dark:bg-pink-600 text-white rounded hover:bg-pink-500 dark:hover:bg-pink-700 transition-colors duration-200"
+            >
+              Calcular figura individual
             </button>
           </div>
         </form>
       </div>
+      <ResultModal 
+        show={showResultModal} 
+        onClose={handleCloseResultModal} 
+        total={resultVolumen} 
+        tipoFigura={`${figure ? figure.name.toLowerCase() : 'sólida'}`}
+        esCalculoTotal={false}
+        data-testid="result-modal-individual-solid"
+      />
     </div>
   );
 };
