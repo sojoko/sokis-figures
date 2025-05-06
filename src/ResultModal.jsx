@@ -1,8 +1,6 @@
 import React from 'react';
-import { useTheme } from './ThemeContext';
 
 function ResultModal({ show, onClose, total, tipoFigura, esCalculoTotal = false }) {
-  const { darkMode } = useTheme();
   
   if (!show) return null;
   

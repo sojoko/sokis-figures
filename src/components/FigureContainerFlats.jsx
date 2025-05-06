@@ -8,7 +8,6 @@ import trapecioImg from '../assets/trapecio.png';
 import circuloImg from '../assets/circulo.png';
 import Modal2 from '../Modal2';
 import ResultModal from '../ResultModal';
-import { useTheme } from '../ThemeContext';
 
 function FirgureContainerFlats() {
   const figures = [
@@ -33,8 +32,6 @@ function FirgureContainerFlats() {
   const [areaRomboides, setAreaRomboides] = useState([]);
   const [areaTrapecios, setAreaTrapecios] = useState([]);
   const [areaCirculos, setAreaCirculos] = useState([]);
-
-  const { darkMode } = useTheme();
 
   const addVolumen = (figureName, area) => {
     if (figureName === 'Cuadrado') {

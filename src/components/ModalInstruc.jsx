@@ -1,8 +1,6 @@
 import React from 'react';
-import { useTheme } from '../ThemeContext';
 
 function ModalInstruc({ isOpen, onClose }) {
-  const { darkMode } = useTheme();
   
   if (!isOpen) return null;
 

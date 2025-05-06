@@ -1,15 +1,12 @@
 import React from 'react';
 import esferaImg from '../assets/esfera.png';
 import trianguloImg from '../assets/triangulo.png';
-import { useTheme } from '../ThemeContext';
 
 function FirgureSelecter() {
   const figures = [
     { name: 'Figuras planas', img: trianguloImg, src:"/planas"},
     { name: 'Figuras solidas', img: esferaImg, src:"/solidas" },
   ];
-  
-  const { darkMode } = useTheme();
   
   return (
     <div data-testid="figure-selecter-container" className='min-h-[85vh] flex justify-center items-center dark:bg-gray-900 transition-colors duration-200'>

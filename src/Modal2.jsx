@@ -1,7 +1,6 @@
 import React from 'react';
 import { useState } from 'react';
 import ResultModal from './ResultModal';
-import { useTheme } from './ThemeContext';
 
 const Modal2 = ({ show, onClose, figure,
   addVolumen 
@@ -14,7 +13,6 @@ const Modal2 = ({ show, onClose, figure,
   const [h, seth] = useState(0);
   const [showResultModal, setShowResultModal] = useState(false);
   const [resultArea, setResultArea] = useState(0);
-  const { darkMode } = useTheme();
 
   if (!show) {
     return null;

@@ -2,10 +2,8 @@ import React from 'react';
 import { Footer } from '../components/Footer';
 import { FirgureContainerFlats } from '../components/FigureContainerFlats';
 import { Header } from '../components/Header';
-import { useTheme } from '../ThemeContext';
 
 function FiguresFlats() {
-  const { darkMode } = useTheme();
 
   return (
   <React.Fragment>

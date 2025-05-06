@@ -1,7 +1,5 @@
-import { useTheme } from '../ThemeContext';
 
 function Footer() {
-  const { darkMode } = useTheme();
 
   return (
     <div className='pt-4 flex w-full justify-center lg:justify-end items-end dark:bg-gray-800 transition-colors duration-200' data-testid="footer">

@@ -2,10 +2,8 @@ import React from 'react';
 import { Footer } from '../components/Footer';
 import { FirgureContainer } from '../components/FigureContainer';
 import { Header } from '../components/Header';
-import { useTheme } from '../ThemeContext';
 
 function FiguresSolid() {
-  const { darkMode } = useTheme();
 
   return (
   <React.Fragment>

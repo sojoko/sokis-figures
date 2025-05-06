@@ -6,7 +6,6 @@ import cilindroImg from '../assets/cilindro.png';
 import conoImg from '../assets/cono.png';
 import Modal from '../Modal';
 import ResultModal from '../ResultModal';
-import { useTheme } from '../ThemeContext';
 
 function FirgureContainer() {
   const figures = [
@@ -26,8 +25,6 @@ function FirgureContainer() {
   const [volumenCilindros, setVolumenCilindros] = useState([]);
   const [volumenConos, setVolumenConos] = useState([]);
   const [volumenEsferas, setVolumenEsferas] = useState([]);
-
-  const { darkMode } = useTheme();
 
   const addVolumen = (figureName, volumen) => {
     if (figureName === 'Esfera') {
